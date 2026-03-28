@@ -6,7 +6,8 @@
   "author": "It's not you it's me",
   "type": "module",
   "scripts": {
-    "dev": "tsx --watch src/main.ts",
+    "start:dev": "tsx src/main.ts",
+    "start:watch": "tsx --watch src/main.ts",
     "start:prod": "node dist/main.mjs",
     "build": "tsdown",
     "build:watch": "tsdown --watch",
