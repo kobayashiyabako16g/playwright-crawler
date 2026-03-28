@@ -11,12 +11,18 @@ importers:
       '@google-cloud/vertexai':
         specifier: ^1.10.3
         version: 1.10.3
+      cheerio:
+        specifier: ^1.2.0
+        version: 1.2.0
       crawlee:
         specifier: ^3.0.0
         version: 3.16.0(@types/node@24.12.0)(playwright@1.58.2)
       playwright:
         specifier: '*'
         version: 1.58.2
+      turndown:
+        specifier: ^7.2.2
+        version: 7.2.2
     devDependencies:
       '@apify/tsconfig':
         specifier: ^0.1.0
@@ -24,9 +30,15 @@ importers:
       '@dotenvx/dotenvx':
         specifier: ^1.58.0
         version: 1.58.0
+      '@types/cheerio':
+        specifier: ^1.0.0
+        version: 1.0.0
       '@types/node':
         specifier: ^24.0.0
         version: 24.12.0
+      '@types/turndown':
+        specifier: ^5.0.6
+        version: 5.0.6
       oxfmt:
         specifier: ^0.42.0
         version: 0.42.0
@@ -435,6 +447,9 @@ packages:
 
   '@keyv/serialize@1.1.1':
     resolution: {integrity: sha512-dXn3FZhPv0US+7dtJsIi2R+c7qWYiReoEh5zUntWCf4oSpMNib8FDhSoed6m3QyZdx5hK7iLFkYk3rNxwt8vTA==}
+
+  '@mixmark-io/domino@2.2.0':
+    resolution: {integrity: sha512-Y28PR25bHXUg88kCV7nivXrP2Nj2RueZ3/l/jdx6J9f8J4nsEGcgX0Qe6lt7Pa+J79+kPiJU3LguR6O/6zrLOw==}
 
   '@napi-rs/wasm-runtime@1.1.1':
     resolution: {integrity: sha512-p64ah1M1ld8xjWv3qbvFwHiFVWrq1yFvV4f7w+mzaqiR4IlSgkqhcRdHwsGgomwzBH51sRY4NEowLxnaBjcW/A==}
@@ -862,6 +877,10 @@ packages:
   '@tybys/wasm-util@0.10.1':
     resolution: {integrity: sha512-9tTaPJLSiejZKx+Bmog4uSubteqTvFrVrURwkmHixBo0G4seD0zUxp98E1DzUBJxLQ3NPwXrGKDiVjwx/DpPsg==}
 
+  '@types/cheerio@1.0.0':
+    resolution: {integrity: sha512-zAaImHWoh5RY2CLgU2mvg3bl2k3F65B0N5yphuII3ythFLPmJhL7sj1RDu6gSxcgqHlETbr/lhA2OBY+WF1fXQ==}
+    deprecated: This is a stub types definition. cheerio provides its own type definitions, so you do not need this installed.
+
   '@types/content-type@1.1.9':
     resolution: {integrity: sha512-Hq9IMnfekuOCsEmYl4QX2HBrT+XsfXiupfrLLY8Dcf3Puf4BkBOxSbWYTITSOQAhJoYPBez+b4MJRpIYL65z8A==}
 
@@ -888,6 +907,9 @@ packages:
 
   '@types/tough-cookie@4.0.5':
     resolution: {integrity: sha512-/Ad8+nIOV7Rl++6f1BdKxFSMgmoqEoYbHRpPcx3JEfv8VRsQe9Z4mCXeJBzxs7mbHY/XOZZuXlRNfhpVPbs6ZA==}
+
+  '@types/turndown@5.0.6':
+    resolution: {integrity: sha512-ru00MoyeeouE5BX4gRL+6m/BsDfbRayOskWqUvh7CLGW+UXxHQItqALa38kKnOiZPqJrtzJUgAC2+F0rL1S4Pg==}
 
   '@vladfrangu/async_event_emitter@2.4.7':
     resolution: {integrity: sha512-Xfe6rpCTxSxfbswi/W/Pz7zp1WWSNn4A0eW4mLkQUewCrXXtMj31lCg+iQyTkh/CkusZSq9eDflu7tjEDXUY6g==}
@@ -1014,6 +1036,10 @@ packages:
   cheerio@1.0.0-rc.12:
     resolution: {integrity: sha512-VqR8m68vM46BNnuZ5NtnGBKIE/DfN0cRIzg9n40EIq9NOv90ayxLBXA8fXC5gquFRGJSTRqBq25Jt2ECLR431Q==}
     engines: {node: '>= 6'}
+
+  cheerio@1.2.0:
+    resolution: {integrity: sha512-WDrybc/gKFpTYQutKIK6UvfcuxijIZfMfXaYm8NMsPQxSYvf+13fXUJ4rztGGbJcBQ/GF55gvrZ0Bc0bj/mqvg==}
+    engines: {node: '>=20.18.1'}
 
   cli-cursor@3.1.0:
     resolution: {integrity: sha512-I/zHAwsKf9FqGoXM4WWRACob9+SNukZTd94DWF57E4toouRulbCxcUh6RKUEOQlYTHJnzkPMySvPNaaSLNfLZw==}
@@ -1181,6 +1207,9 @@ packages:
   empathic@2.0.0:
     resolution: {integrity: sha512-i6UzDscO/XfAcNYD75CfICkmfLedpyPDdozrLMmQc5ORaQcdMoc21OnlEylMIqI7U8eniKrPMxxtj8k0vhmJhA==}
     engines: {node: '>=14'}
+
+  encoding-sniffer@0.2.1:
+    resolution: {integrity: sha512-5gvq20T6vfpekVtqrYQsSCFZ1wEg5+wW0/QaZMWkFr6BqD3NfKs0rLCx4rrVlSWJeZb5NBJgVLswK/w2MWU+Gw==}
 
   entities@4.5.0:
     resolution: {integrity: sha512-V0hjH4dGPh9Ao5p0MoRY6BVqtwCjhz6vI5LT8AJ55H+4g9/4vbHx1I54fS0XuclLhDHArPQCiMjDxjaL8fPxhw==}
@@ -1722,6 +1751,9 @@ packages:
   parse5-htmlparser2-tree-adapter@7.1.0:
     resolution: {integrity: sha512-ruw5xyKs6lrpo9x9rCZqZZnIUntICjQAd0Wsmp396Ul9lN/h+ifgVV1x1gZHi8euej6wTfpqX8j+BFQxF0NS/g==}
 
+  parse5-parser-stream@7.1.2:
+    resolution: {integrity: sha512-JyeQc9iwFLn5TbvvqACIF/VXG6abODeB3Fwmv/TGdLk2LfbWkaySGY72at4+Ty7EkPZj854u4CrICqNk2qIbow==}
+
   parse5@7.3.0:
     resolution: {integrity: sha512-IInvU7fabl34qmi9gY8XOVxhYyMyuH2xUNpb2q8/Y+7552KlejkRvqvD19nMoUW/uQGGbqNpA6Tufu5FL5BZgw==}
 
@@ -2049,6 +2081,9 @@ packages:
     engines: {node: '>=18.0.0'}
     hasBin: true
 
+  turndown@7.2.2:
+    resolution: {integrity: sha512-1F7db8BiExOKxjSMU2b7if62D/XOyQyZbPKq/nUwopfgnHlqXHqQ0lvfUTeUIr1lZJzOPFn43dODyMSIfvWRKQ==}
+
   type-fest@0.21.3:
     resolution: {integrity: sha512-t0rzBq87m3fVcduHDUFhKmyyX+9eo6WQjZvf51Ea/M0Q7+T374Jp1aUiyUl0GKxp8M/OETVHSDvmkyPgvX+X2w==}
     engines: {node: '>=10'}
@@ -2078,6 +2113,10 @@ packages:
 
   undici-types@7.16.0:
     resolution: {integrity: sha512-Zz+aZWSj8LE6zoxD+xrjh4VfkIG8Ya6LvYkZqtUQGJPZjYl53ypCaUwWqo7eI0x66KBGeRo+mlBEkMSeSZ38Nw==}
+
+  undici@7.24.6:
+    resolution: {integrity: sha512-Xi4agocCbRzt0yYMZGMA6ApD7gvtUFaxm4ZmeacWI4cZxaF6C+8I8QfofC20NAePiB/IcvZmzkJ7XPa471AEtA==}
+    engines: {node: '>=20.18.1'}
 
   universalify@2.0.1:
     resolution: {integrity: sha512-gptHNQghINnc/vTGIk0SOFGFNXw7JVrlRUtConJRlvaw6DuX0wO5Jeko9sWrMBhh+PsYAZ7oXAiOnf/UKogyiw==}
@@ -2680,6 +2719,8 @@ snapshots:
 
   '@keyv/serialize@1.1.1': {}
 
+  '@mixmark-io/domino@2.2.0': {}
+
   '@napi-rs/wasm-runtime@1.1.1':
     dependencies:
       '@emnapi/core': 1.9.1
@@ -2917,6 +2958,10 @@ snapshots:
       tslib: 2.8.1
     optional: true
 
+  '@types/cheerio@1.0.0':
+    dependencies:
+      cheerio: 1.2.0
+
   '@types/content-type@1.1.9': {}
 
   '@types/estree@1.0.8': {}
@@ -2942,6 +2987,8 @@ snapshots:
       '@types/node': 24.12.0
 
   '@types/tough-cookie@4.0.5': {}
+
+  '@types/turndown@5.0.6': {}
 
   '@vladfrangu/async_event_emitter@2.4.7': {}
 
@@ -3065,6 +3112,20 @@ snapshots:
       htmlparser2: 8.0.2
       parse5: 7.3.0
       parse5-htmlparser2-tree-adapter: 7.1.0
+
+  cheerio@1.2.0:
+    dependencies:
+      cheerio-select: 2.1.0
+      dom-serializer: 2.0.0
+      domhandler: 5.0.3
+      domutils: 3.2.2
+      encoding-sniffer: 0.2.1
+      htmlparser2: 10.1.0
+      parse5: 7.3.0
+      parse5-htmlparser2-tree-adapter: 7.1.0
+      parse5-parser-stream: 7.1.2
+      undici: 7.24.6
+      whatwg-mimetype: 4.0.0
 
   cli-cursor@3.1.0:
     dependencies:
@@ -3219,6 +3280,11 @@ snapshots:
   emoji-regex@8.0.0: {}
 
   empathic@2.0.0: {}
+
+  encoding-sniffer@0.2.1:
+    dependencies:
+      iconv-lite: 0.6.3
+      whatwg-encoding: 3.1.1
 
   entities@4.5.0: {}
 
@@ -3888,6 +3954,10 @@ snapshots:
       domhandler: 5.0.3
       parse5: 7.3.0
 
+  parse5-parser-stream@7.1.2:
+    dependencies:
+      parse5: 7.3.0
+
   parse5@7.3.0:
     dependencies:
       entities: 6.0.1
@@ -4202,6 +4272,10 @@ snapshots:
     optionalDependencies:
       fsevents: 2.3.3
 
+  turndown@7.2.2:
+    dependencies:
+      '@mixmark-io/domino': 2.2.0
+
   type-fest@0.21.3: {}
 
   type-fest@2.19.0: {}
@@ -4220,6 +4294,8 @@ snapshots:
       quansync: 1.0.0
 
   undici-types@7.16.0: {}
+
+  undici@7.24.6: {}
 
   universalify@2.0.1: {}
 

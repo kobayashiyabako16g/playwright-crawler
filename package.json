@@ -21,13 +21,17 @@
   },
   "dependencies": {
     "@google-cloud/vertexai": "^1.10.3",
+    "cheerio": "^1.2.0",
     "crawlee": "^3.0.0",
-    "playwright": "*"
+    "playwright": "*",
+    "turndown": "^7.2.2"
   },
   "devDependencies": {
     "@apify/tsconfig": "^0.1.0",
     "@dotenvx/dotenvx": "^1.58.0",
+    "@types/cheerio": "^1.0.0",
     "@types/node": "^24.0.0",
+    "@types/turndown": "^5.0.6",
     "oxfmt": "^0.42.0",
     "oxlint": "^1.57.0",
     "tsdown": "^0.21.6",

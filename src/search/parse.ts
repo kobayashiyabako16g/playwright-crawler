@@ -1,4 +1,6 @@
+import * as cheerio from "cheerio";
 import { generateJSON } from "../lib/vertexai.js";
+import { htmlToMarkdown } from "../utils/html.js";
 
 export interface SearchResult {
   rank: number;
@@ -7,44 +9,20 @@ export interface SearchResult {
 }
 
 /**
- * Remove script/style tags and minimize HTML for token efficiency
- */
-function cleanHtml(html: string): string {
-  return (
-    html
-      // Remove script tags
-      .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, "")
-      // Remove style tags
-      .replace(/<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/gi, "")
-      // Remove comments
-      .replace(/<!--[\s\S]*?-->/g, "")
-      // Remove SVG
-      .replace(/<svg\b[^<]*(?:(?!<\/svg>)<[^<]*)*<\/svg>/gi, "")
-      // Remove noscript
-      .replace(/<noscript\b[^<]*(?:(?!<\/noscript>)<[^<]*)*<\/noscript>/gi, "")
-      // Collapse whitespace
-      .replace(/\s+/g, " ")
-      .trim()
-  );
-}
-
-/**
- * Extract search results section from full HTML
+ * Extract search results section from HTML
  */
 function extractSearchSection(html: string): string {
-  // Try to extract just the search results container
-  const rsoMatch = html.match(/<div id="rso"[^>]*>[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/i);
-  if (rsoMatch) {
-    return rsoMatch[0];
-  }
+  const $ = cheerio.load(html);
 
-  const searchMatch = html.match(/<div id="search"[^>]*>[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/i);
-  if (searchMatch) {
-    return searchMatch[0];
-  }
+  // Try to get just the search results container
+  const rso = $("#rso").html();
+  if (rso) return rso;
 
-  // Fallback: return cleaned full HTML (may hit token limits)
-  return html;
+  const search = $("#search").html();
+  if (search) return search;
+
+  // Fallback to body
+  return $("body").html() || html;
 }
 
 /**
@@ -54,11 +32,11 @@ export async function parseSearchResults(
   html: string,
   limit: number = 10,
 ): Promise<SearchResult[]> {
-  // Clean and extract relevant section
-  const cleanedHtml = cleanHtml(html);
-  const searchSection = extractSearchSection(cleanedHtml);
+  // Extract search section and convert to Markdown
+  const searchSection = extractSearchSection(html);
+  const markdown = htmlToMarkdown(searchSection);
 
-  const prompt = `You are a search result parser. Extract the top ${limit} organic search results from the following Google search results HTML.
+  const prompt = `You are a search result parser. Extract the top ${limit} organic search results from the following Google search results content.
 
 For each result, extract:
 - rank: The position (1-based)
@@ -74,8 +52,8 @@ Rules:
 
 Return a JSON array of objects with fields: rank, title, url
 
-HTML:
-${searchSection}`;
+Content:
+${markdown}`;
 
   try {
     const results = await generateJSON<SearchResult[]>(prompt);
