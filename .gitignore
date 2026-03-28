@@ -16,3 +16,9 @@ devenv.local.nix
 
 # pre-commit
 .pre-commit-config.yaml
+
+# dotenvx
+.env
+.env.local
+.env.*.local
+.env.keys

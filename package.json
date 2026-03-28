@@ -6,24 +6,27 @@
   "author": "It's not you it's me",
   "type": "module",
   "scripts": {
-    "start:dev": "tsx src/main.ts",
-    "start:watch": "tsx --watch src/main.ts",
+    "start:dev": "dotenvx run -- tsx src/main.ts",
+    "start:watch": "dotenvx run -- tsx --watch src/main.ts",
     "start:prod": "node dist/main.mjs",
-    "build": "tsdown",
-    "build:watch": "tsdown --watch",
+    "build": "dotenvx run -- tsx src/main.ts",
+    "build:watch": "dotenvx run -- tsx --watch src/main.ts",
     "test": "echo \"Error: oops, the actor has no tests yet, sad!\" && exit 1",
     "postinstall": "npx crawlee install-playwright-browsers",
     "lint": "oxlint",
     "lint:fix": "oxlint --fix",
     "fmt": "oxfmt",
-    "fmt:check": "oxfmt --check"
+    "fmt:check": "oxfmt --check",
+    "env:set": "dotenvx set"
   },
   "dependencies": {
+    "@google-cloud/vertexai": "^1.10.3",
     "crawlee": "^3.0.0",
     "playwright": "*"
   },
   "devDependencies": {
     "@apify/tsconfig": "^0.1.0",
+    "@dotenvx/dotenvx": "^1.58.0",
     "@types/node": "^24.0.0",
     "oxfmt": "^0.42.0",
     "oxlint": "^1.57.0",
