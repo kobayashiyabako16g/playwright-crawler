@@ -1,12 +1,7 @@
 import { createPlaywrightRouter } from "crawlee";
+import { parseSearchResults, type SearchResult } from "./search/parse.js";
 
 export const router = createPlaywrightRouter();
-
-interface SearchResult {
-  rank: number;
-  title: string;
-  url: string;
-}
 
 router.addDefaultHandler(async ({ page, log, pushData }) => {
   log.info("Google検索結果を取得中...");
@@ -39,40 +34,9 @@ router.addDefaultHandler(async ({ page, log, pushData }) => {
     // 同意画面がない場合は無視
   }
 
-  // 検索結果を取得（複数のセレクタパターンを試す）
-  let results: SearchResult[] = [];
-
-  // パターン1: 一般的な検索結果 (div with data-sokoban-container or data-hveid)
-  results = await page.$$eval(
-    'div[data-hveid] a[href^="http"]:has(h3), #rso a[href^="http"]:has(h3), .g a[href^="http"]:has(h3)',
-    (elements, limit) => {
-      const items: SearchResult[] = [];
-      const seenUrls = new Set<string>();
-
-      for (const linkEl of elements) {
-        if (items.length >= limit) break;
-
-        const url = linkEl.getAttribute("href");
-        const titleEl = linkEl.querySelector("h3");
-
-        if (url && titleEl && !seenUrls.has(url)) {
-          const title = titleEl.textContent;
-          if (url.startsWith("http") && title && !url.includes("google.com")) {
-            seenUrls.add(url);
-
-            items.push({
-              rank: items.length + 1,
-              title: title.trim(),
-              url: url,
-            });
-          }
-        }
-      }
-
-      return items;
-    },
-    10,
-  );
+  // Geminiを使って検索結果をパース
+  log.info("Geminiで検索結果をパース中...");
+  const results = await parseSearchResults(html, 10);
 
   log.info(`${results.length}件の検索結果を取得しました`);
 
