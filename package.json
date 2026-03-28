@@ -20,7 +20,7 @@
     "env:set": "dotenvx set"
   },
   "dependencies": {
-    "@google-cloud/vertexai": "^1.10.3",
+    "@google/genai": "^1.47.0",
     "cheerio": "^1.2.0",
     "crawlee": "^3.0.0",
     "playwright": "*",
