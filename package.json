@@ -1,41 +1,11 @@
 {
   "name": "playwright-crawler",
-  "version": "0.0.1",
-  "description": "This is an example of a Crawlee project.",
-  "license": "ISC",
-  "author": "It's not you it's me",
-  "type": "module",
+  "version": "1.0.0",
+  "description": "",
   "scripts": {
-    "start:dev": "dotenvx run -- tsx src/main.ts",
-    "start:watch": "dotenvx run -- tsx --watch src/main.ts",
-    "start:prod": "node dist/main.mjs",
-    "build": "dotenvx run -- tsx src/main.ts",
-    "build:watch": "dotenvx run -- tsx --watch src/main.ts",
-    "test": "echo \"Error: oops, the actor has no tests yet, sad!\" && exit 1",
-    "postinstall": "npx crawlee install-playwright-browsers",
-    "lint": "oxlint",
-    "lint:fix": "oxlint --fix",
-    "fmt": "oxfmt",
-    "fmt:check": "oxfmt --check",
-    "env:set": "dotenvx set"
-  },
-  "dependencies": {
-    "@google/genai": "^1.47.0",
-    "cheerio": "^1.2.0",
-    "crawlee": "^3.0.0",
-    "playwright": "*",
-    "turndown": "^7.2.2"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "@apify/tsconfig": "^0.1.0",
-    "@dotenvx/dotenvx": "^1.58.0",
-    "@types/cheerio": "^1.0.0",
-    "@types/node": "^24.0.0",
-    "@types/turndown": "^5.0.6",
-    "oxfmt": "^0.42.0",
-    "oxlint": "^1.57.0",
-    "tsdown": "^0.21.6",
-    "tsx": "^4.4.0",
-    "typescript": "~5.9.0"
+    "turbo": "^2.8.21"
   }
 }
