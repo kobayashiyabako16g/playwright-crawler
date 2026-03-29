@@ -5,28 +5,26 @@
       "dependsOn": ["^build"],
       "cache": true
     },
-    "dev": {
-    },
-    "cleanup": {
-      "cache": false
-    },
     "quality": {
-      "dependsOn": ["lint", "format"]
+      "dependsOn": ["lint", "format:check"]
     },
     "quality:fix": {
-      "dependsOn": ["lint:fix", "format:fix"]
+      "dependsOn": ["lint:fix", "format"]
     },
-    "lint": {},
+    "lint": {
+      "cache": true
+    },
     "lint:fix": {
       "cache": false
     },
-    "format": {},
-    "format:fix": {
+    "format": {
       "cache": false
+    },
+    "format:check": {
+      "cache": true
     },
     "test": {
       "cache": true
     }
   }
 }
-

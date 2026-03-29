@@ -13,10 +13,10 @@
     "build:watch": "dotenvx run -- tsx --watch src/main.ts",
     "test": "echo \"Error: oops, the actor has no tests yet, sad!\" && exit 1",
     "postinstall": "npx crawlee install-playwright-browsers",
-    "lint": "oxlint",
-    "lint:fix": "oxlint --fix",
-    "fmt": "oxfmt",
-    "fmt:check": "oxfmt --check",
+    "lint": "oxlint .",
+    "lint:fix": "oxlint --fix .",
+    "format": "oxfmt .",
+    "format:check": "oxfmt --check .",
     "env:set": "dotenvx set"
   },
   "dependencies": {
@@ -32,8 +32,6 @@
     "@types/cheerio": "^1.0.0",
     "@types/node": "^24.0.0",
     "@types/turndown": "^5.0.6",
-    "oxfmt": "^0.42.0",
-    "oxlint": "^1.57.0",
     "tsdown": "^0.21.6",
     "tsx": "^4.4.0",
     "typescript": "~5.9.0"
