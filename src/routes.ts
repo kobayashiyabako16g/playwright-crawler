@@ -1,5 +1,5 @@
 import { createPlaywrightRouter } from "crawlee";
-import { parseSearchResults, type SearchResult } from "./search/parse.js";
+import { parseSearchResults } from "./search/parse.js";
 
 export const router = createPlaywrightRouter();
 
