@@ -1,5 +1,5 @@
 // For more information, see https://crawlee.dev/
-import { PlaywrightCrawler } from "crawlee";
+import { PlaywrightCrawler, Dataset } from "crawlee";
 
 import { router } from "./routes.js";
 
@@ -65,4 +65,7 @@ const crawler = new PlaywrightCrawler({
 
 console.log(`検索キーワード: "${keyword}"`);
 await crawler.run(startUrls);
-console.log("完了！結果は storage/datasets/default/ に保存されています");
+
+// 全データを1つのJSONファイルにエクスポート
+await Dataset.exportToJSON("results");
+console.log("完了！結果は storage/key_value_stores/default/results.json に保存されています");
