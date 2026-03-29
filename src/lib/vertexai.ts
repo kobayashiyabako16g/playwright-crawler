@@ -3,7 +3,7 @@ import { GoogleGenAI } from "@google/genai";
 // 環境変数から設定を取得
 const PROJECT_ID = process.env.GOOGLE_CLOUD_PROJECT || process.env.GCP_PROJECT_ID;
 const LOCATION = process.env.GOOGLE_CLOUD_LOCATION || "us-central1";
-const MODEL_NAME = process.env.GENERATIVE_MODEL_NAME || "gemini-2.0-flash";
+const MODEL_NAME = process.env.GENERATIVE_MODEL_NAME || "gemini-2.5-flash";
 
 if (!PROJECT_ID) {
   throw new Error("GOOGLE_CLOUD_PROJECT または GCP_PROJECT_ID 環境変数を設定してください");
