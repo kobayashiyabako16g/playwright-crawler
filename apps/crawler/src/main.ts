@@ -12,8 +12,9 @@ const userAgentStrings = [
 ];
 const randomUserAgent = userAgentStrings[Math.floor(Math.random() * userAgentStrings.length)];
 
-// 検索キーワードを設定
-const keyword = "Playwright クローラー";
+// 検索キーワードを設定（--keyword 引数 or デフォルト値）
+const keywordIndex = process.argv.indexOf("--keyword");
+const keyword = keywordIndex !== -1 ? process.argv[keywordIndex + 1] : "Playwright クローラー";
 const encodedKeyword = encodeURIComponent(keyword);
 const startUrls = [`https://www.google.com/search?q=${encodedKeyword}&hl=ja&num=10`];
 
